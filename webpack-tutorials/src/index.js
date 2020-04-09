@@ -14,4 +14,4 @@ import "./../base.css";
 // document.body.appendChild(component());
 
 var div = document.querySelector(".container");
-div.innerText = "Webpack loaded!!";
+div.innerText = "Webpack loaded!!!!???";
