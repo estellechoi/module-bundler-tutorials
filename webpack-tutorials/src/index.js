@@ -1,5 +1,6 @@
 // var _ = require('lodash');
 import _ from "lodash";
+import "./../base.css";
 
 function component() {
 	var element = document.createElement("div");
