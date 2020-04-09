@@ -20,4 +20,6 @@ module.exports = {
 			},
 		],
 	},
+	// source-map makes it possible to refer to original source before minified
+	devtool: "source-map",
 };
