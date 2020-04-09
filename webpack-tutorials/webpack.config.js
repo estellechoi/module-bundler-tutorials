@@ -11,4 +11,13 @@ module.exports = {
 		// __dirname : 현재 경로, __filename : 현재 파일명
 		// path.resolve() method resolves a sequence of paths or path segments into an absolute path.
 	},
+	// loader
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ["css-loader"],
+			},
+		],
+	},
 };
