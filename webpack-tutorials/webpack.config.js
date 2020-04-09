@@ -3,13 +3,13 @@
 // node.js 의 path 라이브러리를 가져오기
 var path = require("path");
 // mini-css-extract-plugin 라이브러리 가져오기
-// var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-	mode: "none",
+	mode: "none", // production, development
 	entry: "./src/index.js",
 	output: {
-		filename: "main.js",
+		filename: "[chunkhash].main.js",
 		path: path.resolve(__dirname, "dist"),
 		// __dirname : 현재 경로, __filename : 현재 파일명
 		// path.resolve() method resolves a sequence of paths or path segments into an absolute path.
@@ -18,11 +18,17 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"],
+				// sequence : right to left
+				use: [
+					// extract css file from main.js
+					{ loader: MiniCssExtractPlugin.loader },
+					// "style-loader",
+					"css-loader",
+				],
 			},
 		],
 	},
-	// plugins: [new MiniCssExtractPlugin()],
+	plugins: [new MiniCssExtractPlugin()],
 	// source-map makes it possible to refer to original source before minified
-	devtool: "source-map",
+	// devtool: "source-map",
 };
